@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 13.3
--- Dumped by pg_dump version 13.3
+-- Dumped from database version 13.4
+-- Dumped by pg_dump version 13.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,6 +19,70 @@ SET row_security = off;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
+
+--
+-- Name: features; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.features (
+    id integer NOT NULL,
+    icon text,
+    title text,
+    note text
+);
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.features_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.features_id_seq OWNED BY public.features.id;
+
+
+--
+-- Name: gallery; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gallery (
+    id integer NOT NULL,
+    title text,
+    largeimage text,
+    smallimage text
+);
+
+
+--
+-- Name: gallery_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.gallery_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: gallery_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.gallery_id_seq OWNED BY public.gallery.id;
+
 
 --
 -- Name: tasks; Type: TABLE; Schema: public; Owner: -
@@ -51,10 +115,92 @@ ALTER SEQUENCE public.tasks_id_seq OWNED BY public.tasks.id;
 
 
 --
+-- Name: testimonials; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.testimonials (
+    id integer NOT NULL,
+    img text,
+    note text,
+    name text
+);
+
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.testimonials_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.testimonials_id_seq OWNED BY public.testimonials.id;
+
+
+--
+-- Name: features id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.features ALTER COLUMN id SET DEFAULT nextval('public.features_id_seq'::regclass);
+
+
+--
+-- Name: gallery id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gallery ALTER COLUMN id SET DEFAULT nextval('public.gallery_id_seq'::regclass);
+
+
+--
 -- Name: tasks id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.tasks ALTER COLUMN id SET DEFAULT nextval('public.tasks_id_seq'::regclass);
+
+
+--
+-- Name: testimonials id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.testimonials ALTER COLUMN id SET DEFAULT nextval('public.testimonials_id_seq'::regclass);
+
+
+--
+-- Data for Name: features; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.features (id, icon, title, note) FROM stdin;
+1	\N	Kyoto, Japan	Kyoto, is famous for its numerous classical Buddhist temples, gardens, imperial palaces, Shinto shrines and traditional wooden houses.
+2	\N	Mount Everest, Nepal	Mount Everest is the highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas.
+3	\N	Black Forest, Deutschland	The Black Forest is known for its dense, evergreen forests and picturesque villages, it is often associated with the Brothers Grimm fairy tales.
+4	\N	Skógafoss, Iceland	Skógafoss is a waterfall on the Skógá River in the south of Iceland at the cliff marking the former coastline.
+\.
+
+
+--
+-- Data for Name: gallery; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.gallery (id, title, largeimage, smallimage) FROM stdin;
+1	Bamboo Forest, Kyoto	https://unsplash.com/photos/kqfE9mvv7Xw	\N
+2	Temple, Kyoto	https://unsplash.com/photos/gd3ysFyrsTQ	\N
+3	Mount Everest, Nepal	https://unsplash.com/photos/dstd4DoLQ90	\N
+4	Boudha, Nepal	https://unsplash.com/photos/DhglXCVqkXY	\N
+5	Black Forest, Germany	https://unsplash.com/photos/J4vccTv0q-k	\N
+6	Geroldsee, Krün, Germany	https://unsplash.com/photos/K3fQgNfKUoc	\N
+7	Skógafoss, Iceland	https://unsplash.com/photos/VlH2eHyE_50	\N
+8	Northern Lights, Iceland	https://unsplash.com/photos/va_nrBLonf8	\N
+9	Iceland Shoreline	https://unsplash.com/photos/d-OQYiy1gQo	\N
+\.
 
 
 --
@@ -71,10 +217,58 @@ COPY public.tasks (id, name) FROM stdin;
 
 
 --
+-- Data for Name: testimonials; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY public.testimonials (id, img, note, name) FROM stdin;
+1	\N	I see my path, but I don’t know where it leads. Not knowing where I’m going is what inspires me to travel it.	Rosalia de Castro
+2	\N	The world is a book, and those who do not travel read only one page.	Saint Augustine
+3	\N	This wasn’t a strange place; it was a new one.	 Paulo Coelho
+\.
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.features_id_seq', 4, true);
+
+
+--
+-- Name: gallery_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.gallery_id_seq', 9, true);
+
+
+--
 -- Name: tasks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('public.tasks_id_seq', 5, true);
+
+
+--
+-- Name: testimonials_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('public.testimonials_id_seq', 3, true);
+
+
+--
+-- Name: features features_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.features
+    ADD CONSTRAINT features_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: gallery gallery_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gallery
+    ADD CONSTRAINT gallery_pkey PRIMARY KEY (id);
 
 
 --
@@ -83,6 +277,14 @@ SELECT pg_catalog.setval('public.tasks_id_seq', 5, true);
 
 ALTER TABLE ONLY public.tasks
     ADD CONSTRAINT tasks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: testimonials testimonials_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.testimonials
+    ADD CONSTRAINT testimonials_pkey PRIMARY KEY (id);
 
 
 --
