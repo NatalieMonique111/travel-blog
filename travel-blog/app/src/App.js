@@ -4,14 +4,13 @@ import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 
 import { About } from "./components/About";
+import { Contact } from "./components/Contact";
 import { Features } from "./components/Features";
 import { Gallery } from "./components/Gallery";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
-import { Services } from "./components/Services";
-import { Team } from "./components/Team";
+// import { Services } from "./components/Services";
 import { Testimonials } from "./components/Testimonials";
-// import { Contact } from "./components/Contact";
 import JsonData from "./data/data.json";
 // import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -45,15 +44,16 @@ const App = () => {
       <Navigation />
       <Header data={landingPageData.Header} />
       <Features data={landingPageData.Features} />
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
       <Gallery data={landingPageData.Gallery}/>
+      {/* <Services data={landingPageData.Services} /> */}
       <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      {/* <Contact data={landingPageData.Contact} /> */}
+      <About data={landingPageData.About} />
+      {/* <Team data={landingPageData.Team} /> */}
+      <Contact data={landingPageData.Contact} />
+    
     </div>
  
-
+    {/* <script type="text/javascript" src="path/to/smoothscroll.min.js"></script> */}
   </main>
   );
 };
