@@ -1,33 +1,40 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
+import * as apiClient from "./apiClient";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Features } from "./components/Features";
 import { Gallery } from "./components/Gallery";
 import { Header } from "./components/Header";
 import { Navigation } from "./components/Navigation";
-// import { Services } from "./components/Services";
 import { Testimonials } from "./components/Testimonials";
 import JsonData from "./data/data.json";
-// import SmoothScroll from "smooth-scroll";
 import "./App.css";
 
-
-// export const scroll = new SmoothScroll('a[href*="#"]', {
-//   speed: 1000,
-//   speedAsDuration: true,
-// });
 
 
 // import Tasks from "./Tasks";
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
+  // useEffect(() => {
+    
+  // }, []);
+
+  const [features, setFeatures] = React.useState([]);
+  const [gallery, setGallery] = React.useState([]);
+  const [testimonials, setTestimonials] = React.useState([]);
+  const loadFeatures = async () => setFeatures(await apiClient.getFeatures());
+  const loadGallery = async () => setGallery(await apiClient.getGallery());
+  const loadTestimonials = async () => setTestimonials(await apiClient.getTestimonials());
+  React.useEffect(() => {
     setLandingPageData(JsonData);
+    loadFeatures();
+    loadGallery();
+    loadTestimonials();
   }, []);
 
   return(
@@ -43,12 +50,10 @@ const App = () => {
     <div>
       <Navigation />
       <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
-      <Gallery data={landingPageData.Gallery}/>
-      {/* <Services data={landingPageData.Services} /> */}
-      <Testimonials data={landingPageData.Testimonials} />
+      <Features data={features} />
+      <Gallery data={gallery}/>
+      <Testimonials data={testimonials} />
       <About data={landingPageData.About} />
-      {/* <Team data={landingPageData.Team} /> */}
       <Contact data={landingPageData.Contact} />
     
     </div>
