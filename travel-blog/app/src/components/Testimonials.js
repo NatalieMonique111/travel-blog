@@ -3,7 +3,7 @@ export const Testimonials = (props) => {
     <div id='testimonials'>
       <div className='container'>
         <div className='section-title text-center'>
-          <h2>Insight</h2>
+          <h2>Inspiration</h2>
         </div>
         <div className='row'>
           {props.data
