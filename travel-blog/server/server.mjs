@@ -1,14 +1,14 @@
 import express from "express";
 import mime from "mime-types";
 
-import taskRouter from "./taskRouter.mjs";
+import commentRouter from "./commentRouter.mjs";
 import featureRouter from "./featureRouter.mjs";
 import galleryRouter from "./galleryRouter.mjs";
 import testimonialRouter from "./testimonialRouter.mjs";
 
 const app = express();
 
-app.use("/api/tasks", taskRouter);
+app.use("/api/comments", commentRouter);
 app.use("/api/features", featureRouter);
 app.use("/api/gallery", galleryRouter);
 app.use("/api/testimonials", testimonialRouter);

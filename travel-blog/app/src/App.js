@@ -3,8 +3,9 @@ import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-import Tasks from "./Tasks";
+
 import * as apiClient from "./apiClient";
+import Comments from "./components/Comments";
 import { Contact } from "./components/Contact";
 import { Features } from "./components/Features";
 import { Gallery } from "./components/Gallery";
@@ -55,7 +56,7 @@ const App = () => {
       <Gallery data={gallery}/>
       <Testimonials data={testimonials} />
       {/* <About data={landingPageData.About} /> */}
-      <Tasks /> 
+      <Comments /> 
       <Contact data={landingPageData.Contact} />
     
     </div>

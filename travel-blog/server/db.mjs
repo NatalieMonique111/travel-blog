@@ -3,10 +3,10 @@ import pgp from "pg-promise";
 
 const db = initDb();
 
-export const getTasks = () => db.any("SELECT * FROM tasks");
+export const getComments = () => db.any("SELECT * FROM comments");
 
-export const addTask = (name) =>
-  db.one("INSERT INTO tasks(name) VALUES(${name}) RETURNING *", { name });
+export const addComment = (comment) =>
+  db.one("INSERT INTO comments(comment, username) VALUES($<comment>, $<username>) RETURNING *", comment );
 
   export const getFeatures = () => db.any("SELECT * FROM features");
   export const getTestimonials = () => db.any("SELECT * FROM testimonials");
