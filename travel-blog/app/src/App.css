@@ -24,10 +24,11 @@
 
 .comment-list {
   margin-top: 2em;
-  border-style: solid;
+  border-style: outset;
   width: fit-content;
   display: inline-block;
-  padding: 3em;
+  padding: 2em;
+  background-color: lightsteelblue;
   
 }
 
@@ -41,5 +42,27 @@
 
 }
 
+.list-el{
+  padding: 1em;
+  position: relative;
+	width: 200px;
+	height: auto;
+  text-align: center;
+  background-color: white;
+  margin: 20px;
+  
+}
 
+.list-el:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: white transparent transparent transparent;
+}
 

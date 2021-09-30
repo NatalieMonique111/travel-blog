@@ -2,8 +2,6 @@ import * as React from "react";
 
 import * as apiClient from "../apiClient";
 
-
-
 const Comments = () => {
   const [comments, setComments] = React.useState([]);
 
@@ -29,7 +27,7 @@ const CommentList = ({ comments }) => (
   
   <ul className="comment-list">
     {comments.map(({ id, comment, username }) => (
-      <li key={id}>"{comment}" <b>-{username}</b></li>
+      <li className="list-el" key={id}>"{comment}"<b> {username}</b></li>
     ))}
   </ul>
 );
@@ -44,7 +42,6 @@ const AddComment = ({ addComment }) => {
     form.reset();
   };
 
-  
   return (
     <div id= 'comments-form'>
     <form  {...{onSubmit}}>
@@ -67,4 +64,3 @@ const AddComment = ({ addComment }) => {
 
 export default Comments;
 
-//create username hook and make it the same as comment. 

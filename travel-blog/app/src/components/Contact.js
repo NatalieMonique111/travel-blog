@@ -1,6 +1,9 @@
 import { useState } from 'react'
-// import emailjs from 'emailjs-com'
 
+import emailjs from 'emailjs-com'
+import{ init } from 'emailjs-com';
+
+init("{PLACEHOLDER FOR USER_ID}");
 const initialState = {
   name: '',
   email: '',
@@ -18,9 +21,9 @@ export const Contact = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(name, email, message)
-    // emailjs
+    emailjs
       .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
+        '{SERVICE_ID}', '{TEMPLATE_ID}', e.target, '{PLACEHOLDER FOR USER_ID}'
       )
       .then(
         (result) => {
@@ -124,25 +127,6 @@ export const Contact = (props) => {
           </div>
           <div className='col-md-12'>
             <div className='row'>
-              <div className='social'>
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : '/'}>
-                      <i className='fa fa-facebook'></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : '/'}>
-                      <i className='fa fa-twitter'></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : '/'}>
-                      <i className='fa fa-youtube'></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>
