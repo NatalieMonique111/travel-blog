@@ -1,3 +1,4 @@
+import { Image } from "./Image";
 export const Features = (props) => {
   return (
     <div id='features' className='text-center'>
@@ -11,6 +12,7 @@ export const Features = (props) => {
                 <div key={`${d.title}-${i}`} className='col-xs-6 col-md-3'>
                   {' '}
                   <i className={d.icon}></i>
+                  <Image  smallImage={d.icon} />
                   <h3>{d.title}</h3>
                   <p>{d.note}</p>
                 </div>

@@ -2,6 +2,8 @@ import * as React from "react";
 
 import * as apiClient from "./apiClient";
 
+
+
 const Tasks = () => {
   const [tasks, setTasks] = React.useState([]);
 
@@ -13,15 +15,19 @@ const Tasks = () => {
   }, []);
 
   return (
-    <section>
+    <div className='container'>
+    <section className='section-title text-center'>
+      <h2> Comments </h2>
       <TaskList tasks={tasks} />
       <AddTask {...{ addTask }} />
     </section>
+    </div>
   );
 };
 
 const TaskList = ({ tasks }) => (
-  <ul>
+  
+  <ul className="comment-list">
     {tasks.map(({ id, name }) => (
       <li key={id}>{name}</li>
     ))}
@@ -42,13 +48,22 @@ const AddTask = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>
-        New task:{" "}
+    
+    <form  onSubmit={onSubmit}>
+      <div className='form'>
+      <label >
+         Comment:{" "}
         <input onChange={(e) => setTask(e.currentTarget.value)} value={task} />
       </label>
-      <button disabled={!canAdd}>Add</button>
+      <label >
+        User name:{" "}
+        <input onChange={(e) => setTask(e.currentTarget.value)} value={task} />
+      </label>
+      </div>
+      <button className='btn-custom' disabled={!canAdd}>Post Comment</button>
     </form>
+    
+    
   );
 };
 

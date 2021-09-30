@@ -16,3 +16,23 @@
     width: 110%;
   }
 }
+
+.comment-list {
+  margin-top: 2em;
+  border-style: solid;
+  width: fit-content;
+  display: inline-block;
+  padding: 3em;
+  
+}
+
+.form {
+  
+  margin-top: 2em;
+  margin-bottom: 3em;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+
+}
+

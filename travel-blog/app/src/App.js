@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
+import Tasks from "./Tasks";
 import * as apiClient from "./apiClient";
-import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Features } from "./components/Features";
 import { Gallery } from "./components/Gallery";
@@ -16,7 +16,8 @@ import "./App.css";
 
 
 
-// import Tasks from "./Tasks";
+
+
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
@@ -53,7 +54,8 @@ const App = () => {
       <Features data={features} />
       <Gallery data={gallery}/>
       <Testimonials data={testimonials} />
-      <About data={landingPageData.About} />
+      {/* <About data={landingPageData.About} /> */}
+      <Tasks /> 
       <Contact data={landingPageData.Contact} />
     
     </div>

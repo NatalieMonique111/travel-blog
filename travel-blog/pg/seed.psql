@@ -90,7 +90,9 @@ ALTER SEQUENCE public.gallery_id_seq OWNED BY public.gallery.id;
 
 CREATE TABLE public.tasks (
     id integer NOT NULL,
-    name text
+    name text,
+    username text,
+    time_stamp timestamp without time zone
 );
 
 
@@ -179,10 +181,10 @@ ALTER TABLE ONLY public.testimonials ALTER COLUMN id SET DEFAULT nextval('public
 --
 
 COPY public.features (id, icon, title, note) FROM stdin;
-1	\N	Kyoto, Japan	Kyoto, is famous for its numerous classical Buddhist temples, gardens, imperial palaces, Shinto shrines and traditional wooden houses.
-2	\N	Mount Everest, Nepal	Mount Everest is the highest mountain above sea level, located in the Mahalangur Himal sub-range of the Himalayas.
-3	\N	Black Forest, Deutschland	The Black Forest is known for its dense, evergreen forests and picturesque villages, it is often associated with the Brothers Grimm fairy tales.
-4	\N	Skógafoss, Iceland	Skógafoss is a waterfall on the Skógá River in the south of Iceland at the cliff marking the former coastline.
+3	https://images.unsplash.com/photo-1587758398792-15cf9a7d0b98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=930&q=80	Black Forest, Deutschland	The Black Forest is known for its dense, evergreen forests and picturesque villages, it is often associated with the Brothers Grimm fairy tales.
+4	https://images.unsplash.com/photo-1586116388367-4bf33540c02b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=928&q=80	Skógafoss, Iceland	Skógafoss is a waterfall on the Skógá River in the south of Iceland at the cliff marking the former coastline.
+2	https://images.unsplash.com/photo-1602590457122-97e105bcbe24?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=928&q=80	Boudha Stupa, Nepal	A UNESCO World Heritage Site on the outskirts of Kathmandu, Nepal. Its massive mandala makes it one of the largest spherical stupas in Nepal and the world.
+1	https://images.unsplash.com/photo-1605523746900-8aa30db1befd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80	Kyoto, Japan	Kyoto, is famous for its numerous classical Buddhist temples, gardens, imperial palaces, Shinto shrines and traditional wooden houses.
 \.
 
 
@@ -191,15 +193,15 @@ COPY public.features (id, icon, title, note) FROM stdin;
 --
 
 COPY public.gallery (id, title, largeimage, smallimage) FROM stdin;
-1	Bamboo Forest, Kyoto	https://unsplash.com/photos/kqfE9mvv7Xw	\N
-2	Temple, Kyoto	https://unsplash.com/photos/gd3ysFyrsTQ	\N
-3	Mount Everest, Nepal	https://unsplash.com/photos/dstd4DoLQ90	\N
-4	Boudha, Nepal	https://unsplash.com/photos/DhglXCVqkXY	\N
-5	Black Forest, Germany	https://unsplash.com/photos/J4vccTv0q-k	\N
-6	Geroldsee, Krün, Germany	https://unsplash.com/photos/K3fQgNfKUoc	\N
-7	Skógafoss, Iceland	https://unsplash.com/photos/VlH2eHyE_50	\N
-8	Northern Lights, Iceland	https://unsplash.com/photos/va_nrBLonf8	\N
-9	Iceland Shoreline	https://unsplash.com/photos/d-OQYiy1gQo	\N
+5	Black Forest, Germany	https://images.unsplash.com/photo-1526582773026-6ba16a429389?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80	https://images.unsplash.com/photo-1526582773026-6ba16a429389?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80
+6	Geroldsee, Krün, Germany	https://images.unsplash.com/photo-1569525484995-460eb7b83935?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80	https://images.unsplash.com/photo-1569525484995-460eb7b83935?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80
+7	Skógafoss, Iceland	https://images.unsplash.com/photo-1520637102912-2df6bb2aec6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80	https://images.unsplash.com/photo-1520637102912-2df6bb2aec6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1469&q=80
+8	Northern Lights, Iceland	https://images.unsplash.com/photo-1596501048547-e9acb71ca798?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80	https://images.unsplash.com/photo-1596501048547-e9acb71ca798?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80
+9	Iceland Shoreline	https://images.unsplash.com/photo-1488227402652-00175718582c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80	https://images.unsplash.com/photo-1488227402652-00175718582c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80
+2	Kyoto, Japan	https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80	https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80
+3	Mount Everest, Nepal	https://images.unsplash.com/photo-1492584328860-c0c7bb599679?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80	https://images.unsplash.com/photo-1492584328860-c0c7bb599679?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80
+4	Boudha, Nepal	https://images.unsplash.com/photo-1615753114978-f64a229e33ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80	https://images.unsplash.com/photo-1623268965386-981bf0589591?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80
+1	Meguro River, Japan	https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80	https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80
 \.
 
 
@@ -207,12 +209,12 @@ COPY public.gallery (id, title, largeimage, smallimage) FROM stdin;
 -- Data for Name: tasks; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.tasks (id, name) FROM stdin;
-1	🙏 Be nice when you add test entries
-2	⏲ Added entries will be reset every Sunday
-3	End white supremacy
-4	Advocate for living wage
-5	Provide universal health care
+COPY public.tasks (id, name, username, time_stamp) FROM stdin;
+2	Now I know my next vacation. Thanks!	KoolAidGrl	\N
+1	Amazing travels!	DigitalTrix	\N
+3	OK, @DigitalNomdad What are we waiting for? 	Yoga4LIFE	\N
+4	Sweet! I was ready yesterday.	DigitalNomad	\N
+5	I highly suggest you stay in Pharping next time	WanderingMystic	\N
 \.
 
 
