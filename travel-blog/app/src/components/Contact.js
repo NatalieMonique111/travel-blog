@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-import emailjs from 'emailjs-com'
-import{ init } from 'emailjs-com';
+// import emailjs from 'emailjs-com'
+// import { init } from 'emailjs-com';
 
-init("{PLACEHOLDER FOR USER_ID}");
+// init("{PLACEHOLDER FOR USER_ID}");
 const initialState = {
   name: '',
   email: '',
@@ -21,7 +21,7 @@ export const Contact = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(name, email, message)
-    emailjs
+    // emailjs
       .sendForm(
         '{SERVICE_ID}', '{TEMPLATE_ID}', e.target, '{PLACEHOLDER FOR USER_ID}'
       )
