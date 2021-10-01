@@ -1,0 +1,68 @@
+@media screen and (max-width: 400px) {
+  #features {
+    padding: 20px;
+    width: 111%;
+  }
+  #about,
+  #services,
+  #testimonials,
+  #team,
+  #contact,
+  #footer {
+    width: 111%;
+  }
+
+  #portfolio {
+    width: 110%;
+  }
+}
+
+#comments-form {
+  padding: 5px;
+  
+}
+
+.comment-list {
+  margin-top: 2em;
+  border-style: outset;
+  width: fit-content;
+  display: inline-block;
+  padding: 2em;
+  background-color: lightsteelblue;
+  
+}
+
+.form {
+  
+  margin-top: 2em;
+  margin-bottom: 3em;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+
+}
+
+.list-el{
+  padding: 1em;
+  position: relative;
+	width: 200px;
+	height: auto;
+  text-align: center;
+  background-color: white;
+  margin: 20px;
+  
+}
+
+.list-el:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: white transparent transparent transparent;
+}
+
