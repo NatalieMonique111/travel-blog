@@ -5,7 +5,7 @@ PostgreSQL database.
 
 This project is a blog based on this set of [Techtonica requirements](https://docs.google.com/document/d/15eivjB1rvcar_WvdstpN5e5ToHEHjl_vw-a43Bt2xRI/edit#).
 
-[Live site on Heroku][travel-blog-111.herokuapp.com].
+[Live site on Heroku](travel-blog-111.herokuapp.com).
 
 ## Prerequisites
 
