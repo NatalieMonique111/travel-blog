@@ -1,10 +1,8 @@
-#Travel Blog Project With PostgreSQL, Express, and React
+## Travel Blog Project With PostgreSQL, Express, and React
 
 End-to-end React app backed by an Express API server, persisting data to
 PostgreSQL database. The project has a basic interface that fetches data from a
-single table in the database, and allows you to add rows to that table. This project is set up according to Techtonica requirements. 
-
-[See the app in action][live].
+single table in the database, and allows you to add rows to that table. This project is set up according to Techtonica requirements.
 
 [![Deploy to Heroku][deploy-badge]][deploy-workflow]
 [![Reset Heroku DB][reset-badge]][reset-workflow]
@@ -123,6 +121,3 @@ npm run psql
 [nvm]: https://github.com/nvm-sh/nvm
 [reset-badge]: https://github.com/gsong/express-react-project-starter/actions/workflows/reset-db.yml/badge.svg
 [reset-workflow]: https://github.com/gsong/express-react-project-starter/actions/workflows/reset-db.yml
-
-
-
