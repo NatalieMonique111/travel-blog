@@ -7,6 +7,8 @@ This project is a blog based on this set of [Techtonica requirements](https://do
 
 [Live site on Heroku](travel-blog-111.herokuapp.com).
 
+<img src="img/travel-blog.png">
+
 ## Prerequisites
 
 ### Docker
