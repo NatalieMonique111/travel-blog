@@ -1,17 +1,11 @@
-## Travel Blog Project With PostgreSQL, Express, and React
+## Travel Blog App With PostgreSQL, Express, and React
 
 End-to-end React app backed by an Express API server, persisting data to
-PostgreSQL database. The project has a basic interface that fetches data from a
-single table in the database, and allows you to add rows to that table. This project is set up according to Techtonica requirements.
+PostgreSQL database.
 
-[![Deploy to Heroku][deploy-badge]][deploy-workflow]
-[![Reset Heroku DB][reset-badge]][reset-workflow]
+This project is a blog based on this set of [Techtonica requirements](https://docs.google.com/document/d/15eivjB1rvcar_WvdstpN5e5ToHEHjl_vw-a43Bt2xRI/edit#).
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
-
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[Live site on Heroku][travel-blog-111.herokuapp.com].
 
 ## Prerequisites
 
@@ -31,12 +25,6 @@ it's located in `/Applications/Docker`.
 ### Node
 
 You'll need to install Node v14 or above. [`nvm`][nvm] is highly recommended.
-
-## Create a New Repository From This Template
-
-[Generate a new repository from this template](https://github.com/gsong/express-react-project-starter/generate).
-
-[See GitHub documentation for more details](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
 ## Set Up the Development Environment
 
@@ -90,34 +78,12 @@ Visit <http://localhost:3000>.
 1. `npm run db:stop` to stop and destroy the PostgreSQL Docker container. Don't
    worry, your data is safe.
 
-## Need to Start a `psql` Session?
-
-```sh
-npm run psql
-```
-
-## Want More Details?
-
-- [Read about the application stack](docs/application-stack.md).
-- [Read about the Express server](server/README.md).
-- [Read about the React app](app/README.md).
-
-## Deployment
-
-[Read about setting up and deploying to Heroku](docs/deployment.md).
-
-## Examples Implemented Using This Template
-
-- [Eventonica](https://github.com/gsong/express-react-project-starter/pull/25)
-- [Adding a new feature step-by-step](https://github.com/gsong/express-react-project-starter/pull/29)
-- [Integration with Google Calendar](https://github.com/gsong/express-react-project-starter/pull/3)
-
 [deploy-badge]: https://github.com/gsong/express-react-project-starter/actions/workflows/deploy.yaml/badge.svg
 [deploy-workflow]: https://github.com/gsong/express-react-project-starter/actions/workflows/deploy.yaml
 [dh-postgres]: https://hub.docker.com/_/postgres
 [docker-www]: https://docs.docker.com/get-docker/
 [homebrew]: https://brew.sh
-[live]: https://tt-express-react-example.herokuapp.com
+[live]: https://stock-hacks-blog.herokuapp.com/
 [nvm]: https://github.com/nvm-sh/nvm
 [reset-badge]: https://github.com/gsong/express-react-project-starter/actions/workflows/reset-db.yml/badge.svg
 [reset-workflow]: https://github.com/gsong/express-react-project-starter/actions/workflows/reset-db.yml
