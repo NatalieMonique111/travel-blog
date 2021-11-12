@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-
 import * as apiClient from "./apiClient";
 import Comments from "./components/Comments";
 import { Contact } from "./components/Contact";
@@ -15,23 +14,16 @@ import { Testimonials } from "./components/Testimonials";
 import JsonData from "./data/data.json";
 import "./App.css";
 
-
-
-
-
-
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
-  // useEffect(() => {
-    
-  // }, []);
 
   const [features, setFeatures] = React.useState([]);
   const [gallery, setGallery] = React.useState([]);
   const [testimonials, setTestimonials] = React.useState([]);
   const loadFeatures = async () => setFeatures(await apiClient.getFeatures());
   const loadGallery = async () => setGallery(await apiClient.getGallery());
-  const loadTestimonials = async () => setTestimonials(await apiClient.getTestimonials());
+  const loadTestimonials = async () =>
+    setTestimonials(await apiClient.getTestimonials());
   React.useEffect(() => {
     setLandingPageData(JsonData);
     loadFeatures();
@@ -39,30 +31,26 @@ const App = () => {
     loadTestimonials();
   }, []);
 
-  return(
-  <main>
-    <nav>
-      <Link to="/">Home</Link> | <Link to="dashboard">Dashboard</Link>
-    </nav>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
+  return (
+    <main>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="dashboard">Dashboard</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
 
-    <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      <Features data={features} />
-      <Gallery data={gallery}/>
-      <Testimonials data={testimonials} />
-      {/* <About data={landingPageData.About} /> */}
-      <Comments /> 
-      <Contact data={landingPageData.Contact} />
-    
-    </div>
- 
-    {/* <script type="text/javascript" src="path/to/smoothscroll.min.js"></script> */}
-  </main>
+      <div>
+        <Navigation />
+        <Header data={landingPageData.Header} />
+        <Features data={features} />
+        <Gallery data={gallery} />
+        <Testimonials data={testimonials} />
+        <Comments />
+        <Contact data={landingPageData.Contact} />
+      </div>
+    </main>
   );
 };
 
